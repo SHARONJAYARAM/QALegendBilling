@@ -112,5 +112,13 @@ public class HomePage extends TestHelperUtility {
 		return new SalesCommissionAgentsPage(driver);
 
 	}
+	private final String _homeTab = "//a[@href='https://qalegend.com/billing/public/home']//span";
+	@FindBy(xpath = _homeTab)
+	private WebElement homeTab;
+public void clickOnHomeTab() {
+			page.clickOnElement(homeTab);
+}
+	
+	
 
 }

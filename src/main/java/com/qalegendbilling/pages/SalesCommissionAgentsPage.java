@@ -133,12 +133,13 @@ public class SalesCommissionAgentsPage extends TestHelperUtility{
 //		wait.waitForElementToBeVisible(driver, userEmailFieldSales);
 //	}
 
-public void enterEmailInSearchBox(String email) {//Update email
-//	page.enterText(searchBoxEmail, email);
-	wait.waitForElementToBeVisible(driver, emailSearchBox);
-//	wait.waitForElementToBeVisible(driver, userEmailField);
-	page.enterText(emailSearchBox, email);
-}
+//public void enterEmailInSearchBox(String email) {//Update email
+//	
+////	wait.waitForElementToBeVisible(driver, emailSearchBox);
+////	page.enterText(emailSearchBox, email);
+//	page.clickOnElement(emailSearchBox);
+//	wait.waitForElementToBeVisible(driver, userEmailFieldSales);
+//}
 
 
 private final String _addButtonSales = "//button[@class='btn btn-primary btn-modal pull-right']";
@@ -198,10 +199,33 @@ public void clickOnSaveButtonSales() {
 	page.clickOnElement(saveAgents);
 }
 
-public String getValidEmailSales() {
+public String getValidEmailSales() throws InterruptedException {
 	wait.waitForElementToBeVisible(driver, userEmailFieldSales); 
+	wait.wait(5000);
 	String email = page.getElementText(userEmailFieldSales);
+	wait.waitForElementToBeVisible(driver, userEmailFieldSales);
+	
 	return email;
+}
+
+private final String _editTestBox="//label//input[@class='form-control input-sm']";//Finding search box
+@FindBy(xpath=_editTestBox)
+WebElement editTestBox;
+public void clickOnEditButtonSalesTest(String email) {
+	wait.waitForElementToBeVisible(driver, userEmailFieldSales);
+	page.clickOnElement(userEmailFieldSales);
+	page.enterText(editTestBox, email);
+}
+
+
+private final String _searchBox="//input[@wfd-id='id8']";//Finding search box
+@FindBy(xpath=_searchBox)
+WebElement searchBox;
+
+
+public void enterRoleName(String role_name) {//Searching role name
+	page.enterText(searchBox, role_name);
+	wait.waitForElementToBeVisible(driver, userEmailFieldSales);
 }
 
 }

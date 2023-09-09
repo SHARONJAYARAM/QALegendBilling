@@ -11,7 +11,6 @@ import com.qalegendbilling.constants.ErrorMessages;
 import com.qalegendbilling.pages.CreatePage;
 import com.qalegendbilling.pages.HomePage;
 import com.qalegendbilling.pages.LoginPage;
-import com.qalegendbilling.pages.RolesPage;
 import com.qalegendbilling.pages.UsersPage;
 import com.qalegendbilling.utilities.ExcelUtility;
 import com.qalegendbilling.utilities.RandomUtility;
@@ -58,17 +57,13 @@ public class UsersTest extends Base {
 		String password = firstName + "@123";
 		String confirmPassword = password;
 		String salesCommissionPercentage = data1.get(1).get(1);
-
 		login = new LoginPage(driver);
 		login.enterUserName(uname);
 		login.enterPassword(pwrd);
 		home = login.clickSubmit();
-//		home.clickOnUserManagementTab();
 		home.clickUserManagementTab();
-//		users = home.clickOnUsers();
-//		users = home.clickUsersTab();
+		users=home.clickUsersTab();
 		create = users.clickOnAddButton();
-		
 		create.enterUserDetails(prefix, firstName, lastName, email, userName, password, confirmPassword, salesCommissionPercentage);
 		create.clickOnIsActive();
 		users=create.clickOnSaveButton();

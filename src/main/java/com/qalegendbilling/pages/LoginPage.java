@@ -56,6 +56,11 @@ public class LoginPage extends TestHelperUtility{
 		page.clickOnElement(submitbutton);
 	}
 	
+	public HomePage clickLoginbutton() {
+		page.clickOnElement(submitbutton);
+		return new HomePage(driver);
+	}
+	
 	public ResetPage clickforgot() {
 		page.clickOnElement(forgotpassword);
 		return new ResetPage(driver);

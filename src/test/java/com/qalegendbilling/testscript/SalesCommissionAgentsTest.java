@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import com.qalegendbilling.automationcore.Base;
 import com.qalegendbilling.constants.ErrorMessages;
-import com.qalegendbilling.pages.CreatePage;
+
 import com.qalegendbilling.pages.HomePage;
 import com.qalegendbilling.pages.LoginPage;
 //import com.qalegendbilling.pages.RolesPage;
@@ -23,10 +23,10 @@ public class SalesCommissionAgentsTest extends Base {
 	SalesCommissionAgentsPage sales;
 
 	UsersPage users;
-	CreatePage create;
+
 	
     @Test
-	public void TC_006_addSalesCommissionAgents() {
+	public void TC_006_addSalesCommissionAgents() throws InterruptedException {
 		
     	List<ArrayList<String>> data = ExcelUtility.excelDataReader("LoginPage");
 		String uname = data.get(0).get(1);
@@ -48,7 +48,11 @@ public class SalesCommissionAgentsTest extends Base {
 		sales.clickOnAddButtonSales();
 		sales.addSalesCommissionAgents(prefix, firstName, lastName, email, contactNo, address, salesCommissionPercentage);
 		sales.clickOnSaveButtonSales();
-		sales.enterEmailInSearchBox(email);	
+	
+//		sales.enterEmailInSearchBox(email);	
+//		sales.setValidEmail(email);
+//		sales.enterRoleName(email);
+		sales.clickOnEditButtonSalesTest(email);
 		String actEmail = sales.getValidEmailSales();
 		Assert.assertEquals(email, actEmail, ErrorMessages.SALES_COMMISSION_ERROR);
 	}
