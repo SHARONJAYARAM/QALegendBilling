@@ -9,22 +9,21 @@
   <groups>
   <run>
   <include name="Regression" />
-  <exclude name="Smoke" />
-  <exclude name="Sanity" />
+  <include name="Smoke" />
+  <include name="Sanity" />
   
   </run>
   </groups>
     <classes>
       <class name="com.qalegendbilling.testscript.RolesTest"/>
       <class name="com.qalegendbilling.testscript.LoginTest"/>
-      <class name="com.qalegendbilling.automationcore.DriverFactory"/>
       <class name="com.qalegendbilling.testscript.UsersTest"/>
       <class name="com.qalegendbilling.testscript.UserManagementTest"/>
       <class name="com.qalegendbilling.testscript.ResetTest"/>
       <class name="com.qalegendbilling.testscript.HomeTest"/>
       <class name="com.qalegendbilling.testscript.SignoutTest"/>
-      <class name="com.qalegendbilling.testscript.SalesCommissionAgentsTest"/>
-      <class name="com.qalegendbilling.automationcore.Base"/>
+      <class name="com.qalegendbilling.testscript.DeleteUserTest"/>
+      <class name="com.qalegendbilling.testscript.EditUserTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

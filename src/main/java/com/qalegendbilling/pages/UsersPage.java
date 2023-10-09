@@ -19,7 +19,8 @@ public class UsersPage extends TestHelperUtility {
 	@FindBy(xpath=_userSearchBox)
 	WebElement userSearchBox;
 	
-	private final String _tdSearchData="//tr[@role='row']//td[text()=' Jack ']";//Getting searched data	
+//	private final String _tdSearchData="//tr[@role='row']//td[text()=' Jack ']";//Getting searched data	
+	private final String _tdSearchData="//tr[@role='row']//td[text()=' Anas ']";//Getting searched data	
 	@FindBy(xpath=_tdSearchData)
 	WebElement tdSearchData;
 

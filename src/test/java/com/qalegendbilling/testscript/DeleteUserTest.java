@@ -23,7 +23,7 @@ public class DeleteUserTest extends Base {
 	UsersPage users;
 	CreatePage create;
 	@Test(priority=1,description="TC_008 verify delete user",groups= {"Regression"})
-	public void TC_008_verifyDeleteUserTab() {
+	public void TC_0010_verifyDeleteUserTab() {
 		List<ArrayList<String>> data = ExcelUtility.excelDataReader("LoginPage");
 		String uname = data.get(0).get(1);
 		String pwrd = data.get(1).get(1);

@@ -12,6 +12,7 @@ import com.qalegendbilling.pages.UsersPage;
 import com.qalegendbilling.utilities.ExcelUtility;
 import com.qalegendbilling.utilities.RandomUtility;
 import com.qalegendbilling.dataprovider.DataProviders;
+import com.qalegendbilling.listeners.Retry;
 import com.qalegendbilling.automationcore.Base;
 
 public class LoginTest extends Base{
@@ -20,7 +21,7 @@ public class LoginTest extends Base{
 	CreatePage create;
 	UsersPage users;
 	
-		@Test(priority=1, description="TC_002 verify Valid Login",groups= {"Regression"})
+		@Test(priority=1, description="TC_002 verify Valid Login",groups= {"Regression"}, retryAnalyzer = Retry.class)
 		public void TC_002_verifyValidLogin() {
 			List<ArrayList<String>>data=ExcelUtility.excelDataReader("LoginPage");
 			String uname=data.get(0).get(1);
@@ -34,7 +35,7 @@ public class LoginTest extends Base{
 			Assert.assertEquals(expUserName, actualUserName,ErrorMessages.USERNAME_FAILURE_MESSAGE);
 		}
 		
-		@Test(priority=1, description="TC_003 verify Invalid Login",groups= {"Reggression"},dataProvider = "InvalidUserCredentials",dataProviderClass = DataProviders.class)
+		@Test(priority=1, description="TC_003 verify Invalid Login",groups= {"Regression"},dataProvider = "InvalidUserCredentials",dataProviderClass = DataProviders.class)
 		public void TC_003_verifyInvalidLogin(String username, String password) {
 			List<ArrayList<String>>data1=ExcelUtility.excelDataReader("LoginPage");
 			String expErrorMessage=data1.get(3).get(1);
@@ -47,8 +48,8 @@ public class LoginTest extends Base{
 		}
 		
 		
-		@Test(priority=1, description="TC_002 verify Login With Newly Added User",groups= {"Regression"})
-		public void TC_002_verifyLoginWithNewlyAddedUser() {
+		@Test(priority=1, description="TC_0012 verify Login With Newly Added User",groups= {"Regression"})
+		public void TC_0012_verifyLoginWithNewlyAddedUser() {
 			List<ArrayList<String>> data2 = ExcelUtility.excelDataReader("LoginPage");
 			String uname = data2.get(0).get(1);
 			String pwrd = data2.get(1).get(1);
@@ -86,60 +87,4 @@ public class LoginTest extends Base{
 			String expUserName=firstName+" "+lastName;
 			Assert.assertEquals(expUserName, actualUserName,ErrorMessages.USERNAME_FAILURE_MESSAGE);	
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-//		@Test
-//		public void TC_003_verifyLoginWithNewlyAddedUser(String username, String password) {
-//			List<ArrayList<String>> data2 = ExcelUtility.excelDataReader("LoginPage");
-//			String uname = data2.get(0).get(1);
-//			String pwrd = data2.get(1).get(1);
-//			List<ArrayList<String>> data3 = ExcelUtility.excelDataReader("CreatePage");
-//			String prefix = data3.get(0).get(1);
-//			String firstName = RandomUtility.getfName();
-//			String lastName = RandomUtility.getlName();
-//			String email = RandomUtility.getRandomEmail();
-//			String userName = firstName + lastName;
-//			String user_password = firstName + "@123";
-//			String confirmPassword = user_password;
-//			String salesCommissionPercentage = data3.get(1).get(1);
-//			login = new LoginPage(driver);
-//			login.enterUserName(uname);
-//			login.enterPassword(pwrd);
-//			home = login.clickSubmit();
-//			home.clickUserManagementTab();
-//			create = users.clickOnAddButton();
-//			create.enterUserDetails(prefix, firstName, lastName, email, userName, user_password, confirmPassword, salesCommissionPercentage);
-//			create.clickOnIsActive();
-//			users=create.clickOnSaveButton();
-//			
-//			home.clickSighnoutButton();
-//			
-//
-//			String expUserName=firstName+" "+lastName;
-//			login=new LoginPage(driver);
-//			login.enterUserName(userName);		
-//			login.enterPassword(user_password);
-//			home=login.clickSubmit();     
-//			String actualUserName=home.getUserAccountName();
-//			Assert.assertEquals(expUserName, actualUserName,ErrorMessages.USERNAME_FAILURE_MESSAGE);
-//		}
 }

@@ -26,7 +26,7 @@ public class SalesCommissionAgentsTest extends Base {
 
 	
     @Test
-	public void TC_006_addSalesCommissionAgents() throws InterruptedException {
+	public void TC_007_addSalesCommissionAgents() throws InterruptedException {
 		
     	List<ArrayList<String>> data = ExcelUtility.excelDataReader("LoginPage");
 		String uname = data.get(0).get(1);

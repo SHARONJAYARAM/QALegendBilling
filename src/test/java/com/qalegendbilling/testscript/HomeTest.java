@@ -21,7 +21,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class HomeTest extends Base{
 
 	HomePage home;
-	@Test
+	@Test(priority=1,description="TC_008 verify edit user",groups= {"Regression"})
 	public void TC_001_verifyHomePageTitle()
 	{
 		List<ArrayList <String>> data = ExcelUtility.excelDataReader("HomePage");

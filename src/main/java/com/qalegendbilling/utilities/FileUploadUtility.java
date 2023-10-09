@@ -1,5 +1,4 @@
 package com.qalegendbilling.utilities;
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -7,7 +6,6 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.WebDriver;
-
 public class FileUploadUtility {
 	
 	public void FileUploadUsingRobotClass(WebDriver driver, String path) throws AWTException, InterruptedException {
@@ -27,5 +25,6 @@ public class FileUploadUtility {
 	    r.keyPress(KeyEvent.VK_ENTER);
 	    r.keyRelease(KeyEvent.VK_ENTER);
 	}
+
 
 }

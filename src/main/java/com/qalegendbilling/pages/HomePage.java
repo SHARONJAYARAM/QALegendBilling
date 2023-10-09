@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.qalegendbilling.utilities.PageUtility;
 import com.qalegendbilling.utilities.TestHelperUtility;
 
 public class HomePage extends TestHelperUtility {
@@ -69,6 +70,7 @@ public class HomePage extends TestHelperUtility {
 
 	public void clickUserManagementTab() {// Click on UserManagementTab
 		page.clickOnElement(userManagementTab);
+//		PageUtility.clickOnElement(userManagementTab);
 		wait.waitForElementToBeVisible(driver, salesCommissionAgent);
 	}
 

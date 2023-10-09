@@ -30,7 +30,7 @@ public class ExtentManager {
 	    platform = getCurrentPlatform();
 	    String fileName = getReportFileLocation(platform);
 	    ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(fileName);
-	    htmlReporter.config().setTestViewChartLocation(ChartLocation.BOTTOM);
+	    htmlReporter.config().setTestViewChartLocation(ChartLocation.BOTTOM);//styles of the report
 	    htmlReporter.config().setChartVisibilityOnOpen(true);
 	    htmlReporter.config().setTheme(Theme.DARK);
 	    htmlReporter.config().setDocumentTitle(fileName);
@@ -49,7 +49,7 @@ public class ExtentManager {
 	    switch (platform) {
 	        case MAC:
 	            reportFileLocation = macReportFileLoc;
-	            createReportPath(macPath);
+	            createReportPath(macPath);//create report directory in specified path
 	            System.out.println("ExtentReport Path for MAC: " + macPath + "\n");
 	            break;
 	        case WINDOWS:

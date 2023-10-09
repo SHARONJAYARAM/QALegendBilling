@@ -22,7 +22,7 @@ import org.testng.annotations.Parameters;
 public class Base extends TestHelperUtility {
 
 	public WebDriver driver;
-	public Properties prop;
+	public static Properties prop;
 	public FileInputStream fs;
 
 	public Base() {
@@ -38,22 +38,22 @@ public class Base extends TestHelperUtility {
 			e.printStackTrace();
 		}
 	}
-
-//	@BeforeMethod(alwaysRun = true)//for individual test cases
-//    @Parameters({"browser"})
-//	public void setUP(String browserName) {
-////        String browser= prop.getProperty("browser");
+	
+//	@BeforeMethod(alwaysRun = true)	//individual test cases
+//	public void setUP() {
+//		String browser = prop.getProperty("browser");
 //		String url = prop.getProperty("url");
-//		driver = DriverFactory.testInitialization(browserName);
+//		driver = DriverFactory.testInitialization(browser);
 //		driver.get(url);
 //	}
+	
 
-	@BeforeMethod(alwaysRun = true)//for configuration files
-	public void setUP() {
-		String browser = prop.getProperty("browser");
-		String url = prop.getProperty("url");
-		driver = DriverFactory.testInitialization(browser);
-		driver.get(url);
+	@BeforeMethod(alwaysRun = true)	//configuration files
+	@Parameters({"browser"})
+	public void setUP(String browserName){
+	     String url= prop.getProperty("url");
+	     driver = DriverFactory.testInitialization(browserName);
+	     driver.get(url);
 	}
 
 	@AfterMethod(alwaysRun = true)
@@ -64,6 +64,12 @@ public class Base extends TestHelperUtility {
 			FileUtils.copyFile(screenshot, new File("./Screenshots/" + result.getName() + ".png"));
 		}
 		driver.quit();
+		
+	}
+	
+	public static String getDriverPath() {
+		String driverPath = System.getProperty("user.dir")+prop.getProperty("driverPathChrome");
+		return driverPath;
 	}
 
 	@BeforeSuite

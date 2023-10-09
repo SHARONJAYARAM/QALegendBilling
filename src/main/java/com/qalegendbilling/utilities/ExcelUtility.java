@@ -18,8 +18,6 @@ import org.apache.poi.ss.usermodel.Row;
 
 public class ExcelUtility {
 	
-	
-	
 	public static XSSFWorkbook wb;
 	public static XSSFSheet sh;
 	public static FileInputStream f;

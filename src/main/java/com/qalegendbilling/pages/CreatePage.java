@@ -15,33 +15,11 @@ public WebDriver driver;
 		PageFactory.initElements(driver, this);//
 	}
 	
-//	private final String _save = "//button[@id='submit_user_buttton']";
-//	@FindBy(xpath= _save)
-//	private WebElement save;
-	
-//	private final String _prefixField = "//input[@id='surnmae']";
-//	@FindBy(xpath= _prefixField)
-//	private WebElement prefixField;
-	
-
-//	public void clickOnSaveButton() {
-//		page.clickOnElement(save);
-//	}
-//	public void enterPrefix(String prefix) {
-//		page.enterText(prefixField, prefix);
-//	}
-	
 	public void enterUserDetails(String prefix, String firstname, String lastName, String email, String password, String confirmPassword, String salesCommission)
 	{
 		wait.waitForElementToBeVisible(driver, prefixField);
 		page.enterText(prefixField, salesCommission);
 	}
-	
- 
-//	***************************************************************************************
-	
-	
-	
 	
 	private final String _isActive = "//input[@class='input-icheck status']";
 	@FindBy(xpath = _isActive)
@@ -85,13 +63,11 @@ public WebDriver driver;
 
 	public void clickOnIsActive() {
 		page.clickOnElement(isActive);
-
 	}
 
 	public UsersPage clickOnSaveButton() {
 		page.clickOnElement(save);
 		return new UsersPage(driver);
-
 	}
 
 	public void enterPrefix(String prefix) {
@@ -136,10 +112,5 @@ public WebDriver driver;
 
 	public void enterSalesCommissionPercentageField(String salesCommissionPercentage) {
 		page.enterText(salesCommisionPercentageField, salesCommissionPercentage);
-	}
-	
-
-
-	
-	
+	}	
 }

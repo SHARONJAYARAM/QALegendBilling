@@ -16,8 +16,6 @@ public class LoginPage extends TestHelperUtility{
 		PageFactory.initElements(driver, this);
 	}
 	
-
-	
 	private final String _username="//input[@id='username']";
 	@FindBy(xpath=_username)
 	WebElement username;
@@ -69,11 +67,9 @@ public class LoginPage extends TestHelperUtility{
 	public String loginPageTitle() {
 	String title=	page.getPageTitle(driver);
 		return title;
-		
 	}
 	public String getErrorMessage() {
 		String err_message= page.getElementText(errorMessage);
 		return err_message;
 	}
-
 }

@@ -24,7 +24,9 @@ public class DriverFactory{
 	    if(browser.equals("chrome")){
 	        ChromeOptions ops=new ChromeOptions();
 	        ops.addArguments("--remote-allow-origins=*");
-	        System.setProperty("webdriver.chrome.driver","D:\\Automation\\Chrome\\chrome driver\\chromedriver.exe");
+//	        String driverPath = System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\chromedriver.exe";
+	        String driverPath = Base.getDriverPath();
+	        System.setProperty("webdriver.chrome.driver",driverPath);
 	        tlDriver.set(new ChromeDriver(ops));
 	    }else if(browser.equals("FireFox")){
 	        tlDriver.set(new FirefoxDriver());
@@ -38,8 +40,6 @@ public class DriverFactory{
 	    return getDriver();
 	}
 	
-	
-
 	/**
 	 * this is used to get the driver with ThreadLocal
 	 *

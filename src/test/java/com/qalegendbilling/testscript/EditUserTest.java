@@ -23,7 +23,7 @@ public class EditUserTest extends Base {
 	CreatePage create;
 	EditUserPage edit;
 	@Test(priority=1,description="TC_008 verify edit user",groups= {"Regression"})
-	public void TC_008_verifyEditUserTab() {
+	public void TC_0011_verifyEditUserTab() {
 		List<ArrayList<String>> data = ExcelUtility.excelDataReader("LoginPage");
 		String uname = data.get(0).get(1);
 		String pwrd = data.get(1).get(1);

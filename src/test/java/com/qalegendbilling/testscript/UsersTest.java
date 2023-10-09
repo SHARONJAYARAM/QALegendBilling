@@ -25,7 +25,7 @@ public class UsersTest extends Base {
 	
 	
 	
-	@Test
+	@Test(priority=1,description="TC_008 verify user search",groups= {"Regression"})
 	public void TC_008_verifyUserSearch() {
 		List<ArrayList<String>> data = ExcelUtility.excelDataReader("HomePage");//Excel read for login
 		String uname = data.get(0).get(1);
@@ -40,11 +40,12 @@ public class UsersTest extends Base {
 		users = home.clickUsersTab();//clickUsersTab
 		users.enterUserName(userName);	
 		String td_Search=users.getSearchValue();
+//		System.out.println(userName+"========================"+td_Search+"============");
 		Assert.assertEquals(userName, td_Search,ErrorMessages.INVALID_USER_NAME);
 	}
 
 	@Test(priority=1,description="TC_006 verify add user details",groups= {"Smoke"})
-	public void TC_006_verifyAddUserDetails() {
+	public void TC_009_verifyAddUserDetails() {
 		List<ArrayList<String>> data = ExcelUtility.excelDataReader("LoginPage");
 		String uname = data.get(0).get(1);
 		String pwrd = data.get(1).get(1);

@@ -23,7 +23,6 @@ public class SignoutTest extends Base {
 	public void TC_004_verifyuser_isNavigate_to_LoginPage_by_clicking_signout() {
 		List<ArrayList<String>> data = ExcelUtility.excelDataReader("HomePage");
 		String uname = data.get(0).get(1);
-		
 		login = new LoginPage(driver);
 		String actTitile = login.loginPageTitle();
 		System.out.println(actTitile);
@@ -34,7 +33,5 @@ public class SignoutTest extends Base {
 		login = home.clickSighnoutButton();
 		String expTitle = login.loginPageTitle();
 		Assert.assertEquals(actTitile, expTitle, ErrorMessages.TITLE_FAILURE_MESSAGE);
-
 	}
-
 }
